@@ -11,7 +11,6 @@ const mongoose = require('./config/monoDB');
 
 const ExpressError = require('./error/error')
 const app = express();
-const PORT =  3000;
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(layouts);
@@ -54,4 +53,8 @@ app.use((err, req, res, next) => {
 
 
 
-app.listen(PORT, () => console.log(`Server running at http://localhost:${PORT}`));
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`✅ Server running on port ${PORT}`);
+});
+

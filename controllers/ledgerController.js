@@ -1,5 +1,5 @@
 const ExpressError = require('../error/error');
-const Ledger = require('../model/mongoLedger');
+const Ledger = require('../model/MongoLedger');
 
 exports.index = async (req,res,next)=>{
     try {

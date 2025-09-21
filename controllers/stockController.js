@@ -1,4 +1,4 @@
-const Stock = require('../model/mongoStock');
+const Stock = require('../model/MongoStock');
 
 exports.index = async (req,res)=>{
     const stocks = await Stock.find();
