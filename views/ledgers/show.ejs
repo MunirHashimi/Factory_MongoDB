@@ -1,0 +1,46 @@
+<div class="container mt-5">
+  <!-- Page Heading -->
+  <div class="card shadow-lg border-0">
+    <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+      <h4 class="mb-0">
+        <i class="bi bi-person-lines-fill me-2"></i> Ledger Details
+      </h4>
+   <a href="/ledger/index" class="btn btn-light btn-sm">
+    <i class="bi bi-arrow-left"></i> Back to List
+    </a>
+    </div>
+
+    <!-- Ledger Info -->
+    <div class="card-body">
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <h6 class="text-muted">Customer Name</h6>
+          <p class="fs-5 fw-bold"><%= ledger.customerName %></p>
+        </div>
+        <div class="col-md-6">
+          <h6 class="text-muted">Phone</h6>
+          <p class="fs-5"><i class="bi bi-telephone me-1"></i> <%= ledger.phone %></p>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-12">
+          <h6 class="text-muted">Address</h6>
+          <p class="fs-5"><i class="bi bi-geo-alt me-1"></i> <%= ledger.address %></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="card-footer text-end">
+      <a href="/ledger/<%= ledger.id %>/edit" class="btn btn-warning btn-sm">
+        <i class="bi bi-pencil-square"></i> Edit
+      </a>
+          <form action="/ledger/<%= ledger.id %>/delete?_method=DELETE" method="POST" style="display:inline;">
+                      <button class="btn btn-sm btn-danger" type="submit" onclick="return confirm('Delete this record?')">
+                        <i class="bi bi-trash"></i>
+                      </button>
+             </form>
+    </div>
+  </div>
+</div>

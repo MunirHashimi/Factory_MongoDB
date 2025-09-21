@@ -1,0 +1,95 @@
+<div class="container mt-4">
+  <h3 class="text-center mb-4">Create New Bill</h3>
+
+  <form id="billForm" action="/bill/create" method="POST">
+    <!-- Bill Info -->
+    <div class="card shadow-sm mb-4">
+      <div class="card-body row g-3">
+        <div class="col-md-4">
+          <label class="form-label">Bill Date</label>
+          <input type="date" name="date" class="form-control" required>
+        </div>
+        <div class="col-md-8">
+          <label class="form-label">Ledger / Customer</label>
+          <select name="ledgerId" class="form-select" required>
+            <option value="">Select Ledger</option>
+            <% ledgers.forEach(ledger => { %>
+              <option value="<%= ledger._id %>"><%= ledger.customerName %></option>
+            <% }) %>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add Item Section -->
+    <div class="card shadow-sm mb-4">
+      <div class="card-body row g-2 align-items-end">
+        <div class="col-md-3">
+          <label class="form-label">Stock</label>
+          <select id="stockId" class="form-select">
+            <option value="">Select Stock</option>
+            <% stocks.forEach(stock => { %>
+              <option value="<%= stock._id %>"><%= stock.itemName %></option>
+            <% }) %>
+          </select>
+        </div>
+        <div class="col-md-2">
+          <label class="form-label">Type</label>
+          <input type="text" id="type" class="form-control">
+        </div>
+        <div class="col-md-1">
+          <label class="form-label">Size</label>
+          <input type="text" id="size" class="form-control">
+        </div>
+        <div class="col-md-1">
+          <label class="form-label">Qty</label>
+          <input type="number" id="quantity" class="form-control" min="1">
+        </div>
+        <div class="col-md-2">
+          <label class="form-label">Bundle</label>
+          <input type="number" id="bundle" class="form-control" min="1">
+        </div>
+        <div class="col-md-2">
+          <label class="form-label">Price</label>
+          <input type="number" id="price" class="form-control" min="0" step="0.01">
+        </div>
+        <div class="col-md-1">
+          <button type="button" class="btn btn-primary w-100" onclick="addItem()">Add</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Items Table -->
+    <div class="card shadow-sm mb-4">
+      <div class="card-body">
+        <h5>Bill Items</h5>
+        <table class="table table-bordered table-hover text-center" id="itemsTable">
+          <thead class="table-light">
+            <tr>
+              <th>Stock</th>
+              <th>Type</th>
+              <th>Size</th>
+              <th>Qty</th>
+              <th>Bundle</th>
+              <th>Price</th>
+              <th>Total</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Hidden input for items -->
+    <input type="hidden" name="items" id="itemsData">
+
+    <!-- Save Button -->
+    <div class="mt-3 text-end">
+      <a href="/bill" class="btn btn-outline-secondary">Cancel</a>
+      <button type="submit" class="btn btn-success">Save Bill</button>
+    </div>
+  </form>
+</div>
+
+

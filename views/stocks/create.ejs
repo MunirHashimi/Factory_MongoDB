@@ -1,0 +1,30 @@
+<div class="container mt-5">
+  <h2 class="mb-4">Add Stock Item</h2>
+
+  <form action="/stock/create" method="POST" class="card p-4 shadow-sm">
+    <div class="mb-3">
+      <label class="form-label">Item Name</label>
+      <input type="text" name="itemName" class="form-control" placeholder="Enter item name" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Item Type</label>
+      <input type="text" name="itemType" class="form-control" placeholder="Enter item type">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Thickness</label>
+      <input type="text" name="thickness" class="form-control" placeholder="Enter thickness (e.g. 5mm)">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">weight(KG)</label>
+      <input type="number" name="quantity" class="form-control" min="1" required>
+    </div>
+
+    <div class="text-end">
+      <button type="submit" class="btn btn-primary">Save</button>
+      <a href="/stock/index" class="btn btn-outline-secondary">Cancel</a>
+    </div>
+  </form>
+</div>

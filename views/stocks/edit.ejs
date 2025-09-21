@@ -1,0 +1,30 @@
+<div class="container mt-5">
+  <h2 class="mb-4">Edit Stock Item</h2>
+
+  <form action="/stock/<%= stock.id %>/edit" method="POST" class="card p-4 shadow-sm">
+    <div class="mb-3">
+      <label class="form-label">Item Name</label>
+      <input type="text" name="itemName" class="form-control" value="<%= stock.itemName %>" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Item Type</label>
+      <input type="text" name="itemType" class="form-control" value="<%= stock.itemType %>">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Thickness</label>
+      <input type="text" name="thickness" class="form-control" value="<%= stock.thickness %>">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Quantity</label>
+      <input type="number" name="quantity" class="form-control" value="<%= stock.quantity %>" min="0" required>
+    </div>
+
+    <div class="text-end">
+      <button type="submit" class="btn btn-primary">Update</button>
+      <a href="/stock/<%= stock.id %>/show" class="btn btn-outline-secondary">Cancel</a>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,18 @@
+<div class="container mt-5">
+  <h2 class="mb-4">Stock Details</h2>
+
+  <div class="card shadow-sm">
+    <div class="card-body">
+      <p><strong>Item Name:</strong> <%= stock.itemName %></p>
+      <p><strong>Item Type:</strong> <%= stock.itemType %></p>
+      <p><strong>Thickness:</strong> <%= stock.thickness || '-' %></p>
+      <p><strong>weight (kg) :</strong> <%= stock.quantity %></p>
+      <p><strong>Created At:</strong> <%= stock.createdAt.toDateString() %></p>
+    </div>
+  </div>
+
+  <div class="mt-3">
+    <a href="/stock/<%= stock.id %>/edit" class="btn btn-warning">Edit</a>
+    <a href="/stock/index" class="btn btn-outline-secondary">Back to List</a>
+  </div>
+</div>
